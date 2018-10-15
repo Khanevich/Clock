@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="output.css">
+  <title>Clockwork</title>
+</head>
+<body>
+  <div class="clock">
+    <div class="clockface">
+     <div class="hand hour"></div>
+      <div class="hand minute"></div>
+       <div class="hand second"></div>
+    </div>
+  </div>
+
+<script>
+var minute = document.getElementsByClassName('minute')[0];
+var second = document.getElementsByClassName('second')[0];
+var hour = document.getElementsByClassName('hour')[0];
+
+function setDate (){
+var now = new Date(),
+seconds = now.getSeconds(),
+minutes = now.getMinutes(),
+hours = now.getHours();
+var secondDegrees = seconds*6 + 90;
+var minuteDegrees = minutes*6 + 90;
+var hourDegrees = hours*30 + 90;
+second.style.transform = `rotate(${secondDegrees}deg)`;
+minute.style.transform = `rotate(${minuteDegrees}deg)`;
+hour.style.transform = `rotate(${hourDegrees}deg)`;
+}
+
+setInterval(setDate,1000);
+
+// var date = new Date();
+// var nowHour = date.getHours();
+// var nowMinute = date.getMinutes();
+// var nowSecond = date.getSeconds();
+// setInterval(function clock(time,now){
+// time.style['transform'] = 'rotate' + '(' + ${90 + now*6} + 'deg' + ')';
+// },1000);
+//
+// clock(second,nowSecond);
+
+
+
+</script>
+</body>
+</html>
